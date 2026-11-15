@@ -156,4 +156,95 @@ final class DependencyInjection
             self::getUserRepository()
         );
     }
+
+    // ------------------------------------------------------------------
+    // Municipio
+    // ------------------------------------------------------------------
+
+    public static function getMunicipioPersistenceMapper(): MunicipioPersistenceMapper
+    {
+        ClassLoader::loadClass('MunicipioPersistenceMapper');
+
+        return new MunicipioPersistenceMapper();
+    }
+
+    public static function getMunicipioRepository(): MunicipioRepositoryMySQL
+    {
+        ClassLoader::loadClass('MunicipioRepositoryMySQL');
+
+        return new MunicipioRepositoryMySQL(
+            self::getPdo(),
+            self::getMunicipioPersistenceMapper()
+        );
+    }
+
+    public static function getCreateMunicipioUseCase(): CreateMunicipioUseCase
+    {
+        ClassLoader::loadClass('CreateMunicipioService');
+
+        return new CreateMunicipioService(
+            self::getMunicipioRepository()
+        );
+    }
+
+    public static function getUpdateMunicipioUseCase(): UpdateMunicipioUseCase
+    {
+        ClassLoader::loadClass('UpdateMunicipioService');
+        $repository = self::getMunicipioRepository();
+
+        return new UpdateMunicipioService(
+            $repository,
+            $repository
+        );
+    }
+
+    public static function getGetMunicipioByIdUseCase(): GetMunicipioByIdUseCase
+    {
+        ClassLoader::loadClass('GetMunicipioByIdService');
+
+        return new GetMunicipioByIdService(
+            self::getMunicipioRepository()
+        );
+    }
+
+    public static function getGetAllMunicipiosUseCase(): GetAllMunicipiosUseCase
+    {
+        ClassLoader::loadClass('GetAllMunicipiosService');
+
+        return new GetAllMunicipiosService(
+            self::getMunicipioRepository()
+        );
+    }
+
+    public static function getDeleteMunicipioUseCase(): DeleteMunicipioUseCase
+    {
+        ClassLoader::loadClass('DeleteMunicipioService');
+        $repository = self::getMunicipioRepository();
+
+        return new DeleteMunicipioService(
+            $repository,
+            $repository
+        );
+    }
+
+    public static function getMunicipioWebMapper(): MunicipioWebMapper
+    {
+        ClassLoader::loadClass('MunicipioWebMapper');
+
+        return new MunicipioWebMapper();
+    }
+
+    public static function getMunicipioController(): MunicipioController
+    {
+        ClassLoader::loadClass('MunicipioController');
+
+        return new MunicipioController(
+            self::getCreateMunicipioUseCase(),
+            self::getUpdateMunicipioUseCase(),
+            self::getGetMunicipioByIdUseCase(),
+            self::getGetAllMunicipiosUseCase(),
+            self::getDeleteMunicipioUseCase(),
+            self::getMunicipioWebMapper()
+        );
+    }
 }
