@@ -80,6 +80,52 @@ final class ClassLoader
         'Flash' => 'Infrastructure/Entrypoints/Web/Presentation/Flash.php',
 
         'DependencyInjection' => 'Common/DependencyInjection.php',
+
+        // ---------------- Municipio ----------------
+        'InvalidMunicipioIdException' => 'Domain/Exceptions/InvalidMunicipioIdException.php',
+        'InvalidMunicipioNameException' => 'Domain/Exceptions/InvalidMunicipioNameException.php',
+        'InvalidMunicipioDataException' => 'Domain/Exceptions/InvalidMunicipioDataException.php',
+        'MunicipioNotFoundException' => 'Domain/Exceptions/MunicipioNotFoundException.php',
+
+        'MunicipioId' => 'Domain/ValueObjects/MunicipioId.php',
+        'MunicipioName' => 'Domain/ValueObjects/MunicipioName.php',
+        'MunicipioModel' => 'Domain/Models/MunicipioModel.php',
+
+        'CreateMunicipioUseCase' => 'Application/Ports/In/CreateMunicipioUseCase.php',
+        'UpdateMunicipioUseCase' => 'Application/Ports/In/UpdateMunicipioUseCase.php',
+        'GetMunicipioByIdUseCase' => 'Application/Ports/In/GetMunicipioByIdUseCase.php',
+        'GetAllMunicipiosUseCase' => 'Application/Ports/In/GetAllMunicipiosUseCase.php',
+        'DeleteMunicipioUseCase' => 'Application/Ports/In/DeleteMunicipioUseCase.php',
+
+        'SaveMunicipioPort' => 'Application/Ports/Out/SaveMunicipioPort.php',
+        'UpdateMunicipioPort' => 'Application/Ports/Out/UpdateMunicipioPort.php',
+        'GetMunicipioByIdPort' => 'Application/Ports/Out/GetMunicipioByIdPort.php',
+        'GetAllMunicipiosPort' => 'Application/Ports/Out/GetAllMunicipiosPort.php',
+        'DeleteMunicipioPort' => 'Application/Ports/Out/DeleteMunicipioPort.php',
+
+        'CreateMunicipioCommand' => 'Application/Services/Dto/Commands/CreateMunicipioCommand.php',
+        'UpdateMunicipioCommand' => 'Application/Services/Dto/Commands/UpdateMunicipioCommand.php',
+        'DeleteMunicipioCommand' => 'Application/Services/Dto/Commands/DeleteMunicipioCommand.php',
+        'GetMunicipioByIdQuery' => 'Application/Services/Dto/Queries/GetMunicipioByIdQuery.php',
+        'GetAllMunicipiosQuery' => 'Application/Services/Dto/Queries/GetAllMunicipiosQuery.php',
+
+        'CreateMunicipioService' => 'Application/Services/CreateMunicipioService.php',
+        'UpdateMunicipioService' => 'Application/Services/UpdateMunicipioService.php',
+        'GetMunicipioByIdService' => 'Application/Services/GetMunicipioByIdService.php',
+        'GetAllMunicipiosService' => 'Application/Services/GetAllMunicipiosService.php',
+        'DeleteMunicipioService' => 'Application/Services/DeleteMunicipioService.php',
+        'MunicipioApplicationMapper' => 'Application/Services/Mappers/MunicipioApplicationMapper.php',
+
+        'MunicipioPersistenceDto' => 'Infrastructure/Adapters/Persistence/MySQL/Dto/MunicipioPersistenceDto.php',
+        'MunicipioEntity' => 'Infrastructure/Adapters/Persistence/MySQL/Entity/MunicipioEntity.php',
+        'MunicipioPersistenceMapper' => 'Infrastructure/Adapters/Persistence/MySQL/Mapper/MunicipioPersistenceMapper.php',
+        'MunicipioRepositoryMySQL' => 'Infrastructure/Adapters/Persistence/MySQL/Repository/MunicipioRepositoryMySQL.php',
+
+        'CreateMunicipioWebRequest' => 'Infrastructure/Entrypoints/Web/Controllers/Dto/CreateMunicipioRequest.php',
+        'UpdateMunicipioWebRequest' => 'Infrastructure/Entrypoints/Web/Controllers/Dto/UpdateMunicipioRequest.php',
+        'MunicipioResponse' => 'Infrastructure/Entrypoints/Web/Controllers/Dto/MunicipioResponse.php',
+        'MunicipioWebMapper' => 'Infrastructure/Entrypoints/Web/Controllers/Mapper/MunicipioWebMapper.php',
+        'MunicipioController' => 'Infrastructure/Entrypoints/Web/Controllers/MunicipioController.php',
     );
 
     public static function register(): void
