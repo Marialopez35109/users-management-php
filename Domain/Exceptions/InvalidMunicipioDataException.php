@@ -11,4 +11,9 @@ class InvalidMunicipioDataException extends InvalidArgumentException
     {
         return new self('The municipio field "' . $field . '" must not be negative.');
     }
+
+    public static function becauseNumberIsInvalid($field)
+    {
+        return new self('The municipio field "' . $field . '" must be a valid number.');
+    }
 }
