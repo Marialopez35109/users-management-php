@@ -62,6 +62,36 @@ final class WebRoutes
                 'method' => 'POST',
                 'action' => 'forgot.send',
             ),
+
+            // ---------------- Municipio ----------------
+            'municipios.index' => array(
+                'method' => 'GET',
+                'action' => 'municipios.index',
+            ),
+            'municipios.create' => array(
+                'method' => 'GET',
+                'action' => 'municipios.create',
+            ),
+            'municipios.store' => array(
+                'method' => 'POST',
+                'action' => 'municipios.store',
+            ),
+            'municipios.show' => array(
+                'method' => 'GET',
+                'action' => 'municipios.show',
+            ),
+            'municipios.edit' => array(
+                'method' => 'GET',
+                'action' => 'municipios.edit',
+            ),
+            'municipios.update' => array(
+                'method' => 'POST',
+                'action' => 'municipios.update',
+            ),
+            'municipios.delete' => array(
+                'method' => 'POST',
+                'action' => 'municipios.delete',
+            ),
         );
     }
 }

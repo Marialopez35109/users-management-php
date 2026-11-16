@@ -32,6 +32,7 @@ require_once __DIR__ . '/../Infrastructure/Entrypoints/Web/Presentation/Flash.ph
 
 DependencyInjection::boot();
 Flash::start();
+require_once __DIR__ . '/../Infrastructure/Entrypoints/Web/MunicipioActions.php';
 
 // ──────────────────────────────────────────────────────────────
 // Auth helpers
@@ -278,6 +279,9 @@ try {
             break;
 
         default:
+            if (handleMunicipioAction((string) $definition['action'])) {
+                break;
+            }
             throw new RuntimeException('Acción no soportada.');
     }
 } catch (Throwable $exception) {
